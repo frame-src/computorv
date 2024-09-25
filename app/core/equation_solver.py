@@ -9,10 +9,12 @@ def evaluate_degree(e : dict) -> int :
 
 
 def solve_linear_equation(e : dict):
+    print("SOLVE LINEAR")
     pass
 
 
 def solve_quadratic_equation(e : dict) :
+    print("SOLVE QUADRATIC")
     pass
 
 def execute_solver(degree: int, e: dict) :
@@ -31,10 +33,11 @@ def execute_solver(degree: int, e: dict) :
 def equation_solver( left : dict, right: dict) :
     equation = left.copy()
     for k,v in right.items():
-        if equation[k] : 
+        if equation.get(k) : 
             equation[k] = equation[k] - v
         else :
             equation[k] = -1 * v 
     degree = evaluate_degree(equation)
+    print(degree)
     solution = execute_solver(degree, equation)
     
