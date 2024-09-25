@@ -1,26 +1,42 @@
-import math
-
-
-def evaluate_degree(e : dict) -> int :
-    for k, v in reversed(list(e.items())) :
-        if v != 0:
-            return int(k)
-    return 0
+from core.operations import (evaluate_discriminant, 
+                             evaluate_degree, 
+                             solve_two_real_solution, 
+                             solve_one_real_solution, 
+                             complex_solution, display_reduced_equation)
 
 
 def solve_linear_equation(e : dict):
-    print("SOLVE LINEAR")
-    pass
+    """ bx + c = 0 """
+    b = e.get(1)
+    c = e.get(2)
+    if b == 0:
+        if c == 0:
+            print ("Solution: Infinite solutions")
+        else :
+            print ("Solution: No solution")
+    else :
+        sol = -c / b
+        print (f"Solution: x = {sol}")
+    exit(0)
+
 
 
 def solve_quadratic_equation(e : dict) :
-    print("SOLVE QUADRATIC")
-    pass
+    delta = evaluate_discriminant(e)
+    if delta > 0:
+        solve_two_real_solution(e, delta)
+    elif delta == 0 :
+        solve_one_real_solution(e, delta)
+    else:
+        complex_solution(e, delta)
+    exit(0)
+        
 
-def execute_solver(degree: int, e: dict) :
+def execute(degree: int, e: dict) :
+    print(f"Polynomial degree: {degree}")
     match degree:
         case 0:
-            return e['0']
+            return e.get(0)
         case 1:
             return solve_linear_equation(e)
         case 2:
@@ -29,15 +45,19 @@ def execute_solver(degree: int, e: dict) :
             return None
 
 
-
-def equation_solver( left : dict, right: dict) :
+def reduce_equation(left : dict, right: dict) :
     equation = left.copy()
     for k,v in right.items():
         if equation.get(k) : 
             equation[k] = equation[k] - v
         else :
             equation[k] = -1 * v 
+    display_reduced_equation(equation)
+    return equation
+
+
+def equation_solver( left : dict, right: dict) :
+    equation = reduce_equation(left, right)
     degree = evaluate_degree(equation)
-    print(degree)
-    solution = execute_solver(degree, equation)
+    execute(degree, equation)
     
