@@ -18,7 +18,7 @@ def solve_quadratic_equation(e : dict) :
 def execute_solver(degree: int, e: dict) :
     match degree:
         case 0:
-            return equation['0']
+            return e['0']
         case 1:
             return solve_linear_equation(e)
         case 2:
