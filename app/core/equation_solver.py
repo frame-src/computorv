@@ -20,7 +20,6 @@ def solve_linear_equation(e : dict):
     exit(0)
 
 
-
 def solve_quadratic_equation(e : dict) :
     delta = evaluate_discriminant(e)
     if delta > 0:
