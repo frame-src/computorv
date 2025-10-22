@@ -31,7 +31,7 @@ def display_reduced_equation(e : dict):
 
 
 def solve_two_real_solution(e: dict, delta: float) :
-    print(f"Discriminant is strictly positive, the two solutions are:")
+    print("Discriminant is strictly positive, the two solutions are:")
     print(e)
     a = e.get(2)
     b = e.get(1)
@@ -42,7 +42,7 @@ def solve_two_real_solution(e: dict, delta: float) :
 
 
 def solve_one_real_solution(e: dict, delta:float) :
-    print(f"Discriminant is zero. One real solution:")
+    print("Discriminant is zero. One real solution:")
     a = e.get(2)
     b = e.get(1)
     root = -b / (2 * a)
@@ -50,7 +50,7 @@ def solve_one_real_solution(e: dict, delta:float) :
 
 
 def complex_solution(e: dict, delta:float) :
-    print(f"Discriminant is negative. Two complex solutions:")
+    print("Discriminant is negative. Two complex solutions:")
     a = e.get(2)
     b = e.get(1)
     real_part = -b / (2 * a)

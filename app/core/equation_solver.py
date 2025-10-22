@@ -39,6 +39,7 @@ def execute(degree: int, e: dict) :
         case 2:
             return solve_quadratic_equation(e)
         case _:
+            print("The polynomial degree is strictly greater than 2, I can't solve.")
             return None
 
 

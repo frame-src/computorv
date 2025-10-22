@@ -3,10 +3,8 @@ from core.equation_solver import equation_solver as solve
 
 def main():
     print("INSERT A POLINOM such as: '5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0'")
-    # to add the input part
-    equation = "5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0"
-    equation = "5 * X^0 + 4 * X^1 = 4 * X^0"
-    left, right = parse_input(equation) 
+    equation = input(" HERE → ").strip()
+    left, right = parse_input(equation)
     if left :
         if right :
             solve( left, right)

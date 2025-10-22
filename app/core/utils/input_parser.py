@@ -19,12 +19,13 @@ def parse_polinom(polinom : str) -> dict :
     return term_dict
 
     
-
 def execute(line: str = "") -> tuple[list,list] :
     if not line :
+        print("No input")
         return None, None
     splitted_line = split_equation(line)
-    if splitted_line == None :
+    if splitted_line is None :
+        print("Invalid input")
         return None, None
     left = parse_polinom(splitted_line[0])
     right = parse_polinom(splitted_line[1])
