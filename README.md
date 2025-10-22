@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 Install linux
 
-## Setup
+## 2. Setup
 
 ### 1. Create and activate a virtual environment, install requirements for testing
 
