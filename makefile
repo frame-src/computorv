@@ -13,4 +13,11 @@ run:
 clean:
 	docker image rm $(IMAGE_NAME)
 
+test:
+	# pytest -v --maxfail=1 --disable-warnings -q
+	pytest -v -s 
+
+lint:
+	ruff check computor tests
+
 .PHONY: build run

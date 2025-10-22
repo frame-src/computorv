@@ -8,7 +8,7 @@ from core.operations import (evaluate_discriminant,
 def solve_linear_equation(e : dict):
     """ bx + c = 0 """
     b = e.get(1)
-    c = e.get(2)
+    c = e.get(0)
     if b == 0:
         if c == 0:
             print ("Solution: Infinite solutions")
@@ -17,7 +17,6 @@ def solve_linear_equation(e : dict):
     else :
         sol = -c / b
         print (f"Solution: x = {sol}")
-    exit(0)
 
 
 def solve_quadratic_equation(e : dict) :
@@ -28,7 +27,6 @@ def solve_quadratic_equation(e : dict) :
         solve_one_real_solution(e, delta)
     else:
         complex_solution(e, delta)
-    exit(0)
         
 
 def execute(degree: int, e: dict) :
