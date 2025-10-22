@@ -2,7 +2,7 @@ IMAGE_NAME = computorv1
 
 CURRENT_DIR = $(shell pwd)
 
-all: build run
+all: install
 
 build:
 	docker build -t $(IMAGE_NAME) .
@@ -18,6 +18,14 @@ test:
 	pytest -v -s 
 
 lint:
-	ruff check computor tests
+	ruff check app tests
+
+venv:
+	python3 -m venv venv
+	@echo "Virtual environment created. Activate it with: source venv/bin/activate"
+
+install: venv
+	venv/bin/pip install --upgrade pip
+	venv/bin/pip install -r test_requirements.txt
 
 .PHONY: build run

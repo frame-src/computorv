@@ -39,3 +39,13 @@ def test_solve_degree_2(capsys):
     out = capsys.readouterr().out
     assert "Polynomial degree: 2" in out
     assert "Discriminant is strictly positive" in out
+
+
+def test_solve_other(capsys):
+    equation = "5 * X^0 + 4 * X^1 - 9.3 * X^2 + 9.4 * X^3 = 1 * X^0"
+    left, right = parse_equation(equation)
+    if left and right:
+        solve(left, right)
+    
+    out = capsys.readouterr().out
+    assert "The polynomial degree is strictly greater than 2, I can't solve." in out

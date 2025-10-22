@@ -24,3 +24,11 @@ pip install -r requirements.txt
 ### For Windows
 
 Install linux
+
+## Setup
+
+### 1. Create and activate a virtual environment, install requirements for testing
+
+```bash
+make install
+```
