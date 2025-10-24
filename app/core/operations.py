@@ -1,7 +1,8 @@
 import math
 
-def evaluate_discriminant(e) :
-    """ b^2 - 4ac"""
+
+def evaluate_discriminant(e):
+    """b^2 - 4ac"""
     print(e)
     a = e.get(2)
     b = e.get(1)
@@ -10,17 +11,18 @@ def evaluate_discriminant(e) :
     return delta
 
 
-def evaluate_degree(e : dict) -> int :
-    for k, v in reversed(list(e.items())) :
+def evaluate_degree(e: dict) -> int:
+    for k, v in reversed(list(e.items())):
         if v != 0:
             return int(k)
     return 0
 
-def display_reduced_equation(e : dict):
+
+def display_reduced_equation(e: dict):
     eq = ""
-    for k, v in reversed(list(e.items())) :
+    for k, v in reversed(list(e.items())):
         if v != 0:
-            if v > 0: 
+            if v > 0:
                 eq += f"{v} * X^{k} + "
             else:
                 eq = eq[:-2]
@@ -30,7 +32,7 @@ def display_reduced_equation(e : dict):
     print(f"Reduced equation: {eq[:-2]}= 0")
 
 
-def solve_two_real_solution(e: dict, delta: float) :
+def solve_two_real_solution(e: dict, delta: float):
     print("Discriminant is strictly positive, the two solutions are:")
     print(e)
     a = e.get(2)
@@ -41,7 +43,7 @@ def solve_two_real_solution(e: dict, delta: float) :
     print(root2)
 
 
-def solve_one_real_solution(e: dict, delta:float) :
+def solve_one_real_solution(e: dict, delta: float):
     print("Discriminant is zero. One real solution:")
     a = e.get(2)
     b = e.get(1)
@@ -49,7 +51,7 @@ def solve_one_real_solution(e: dict, delta:float) :
     print(root)
 
 
-def complex_solution(e: dict, delta:float) :
+def complex_solution(e: dict, delta: float):
     print("Discriminant is negative. Two complex solutions:")
     a = e.get(2)
     b = e.get(1)
