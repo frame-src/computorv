@@ -12,9 +12,10 @@ def evaluate_discriminant(e):
 
 
 def evaluate_degree(e: dict) -> int:
-    for k, v in reversed(list(e.items())):
-        if v != 0:
-            return int(k)
+    a_list = reversed(sorted(list(e.keys())))
+    for i in a_list:
+        if e.get(i):
+            return i
     return 0
 
 
