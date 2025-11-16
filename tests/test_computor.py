@@ -88,3 +88,23 @@ def test_additional_cases(capsys):
     assert "Polynomial degree: 2" in out3
     if "Polynomial degree: 2" in out3:
         assert "Discriminant is negative" in out3 or "Discriminant is zero" in out3 or "Discriminant is strictly positive" in out3
+    
+    # Test case 4: 42*X^0 = 42*X^0
+    equation4 = "42*X^0 = 42*X^0"
+    left4, right4 = parse_equation(equation4)
+    if left4 and right4:
+        solve(left4, right4)
+    out4 = capsys.readouterr().out
+    assert "Polynomial degree: 0" in out4
+    if "Polynomial degree: 0" in out4:
+        assert "Every real number" in out4
+
+    # Test case 5: 42*X^0 = 44*X^0
+    equation5 = "42*X^0 = 44*X^0"
+    left5, right5 = parse_equation(equation5)
+    if left5 and right5:
+        solve(left5, right5)
+    out5 = capsys.readouterr().out
+    assert "Polynomial degree: 0" in out5
+    if "Polynomial degree: 0" in out5:
+        assert "Impossible" in out5

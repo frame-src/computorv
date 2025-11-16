@@ -18,7 +18,7 @@ source venv/bin/activate
 
 ```bash
 # Install Dependencies
-pip install -r requirements.txt
+pip install -r test_requirements.txt
 ```
 
 ### For Windows

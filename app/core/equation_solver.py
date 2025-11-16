@@ -32,11 +32,19 @@ def solve_quadratic_equation(e: dict):
         complex_solution(e, delta)
 
 
+def check_infinite_solution(e : dict):
+    print(e)
+    if e.get(0) == 0:
+        print("Every real number")
+    print("Impossible")
+    return e.get(0)
+
+
 def execute(degree: int, e: dict):
     print(f"Polynomial degree: {degree}")
     match degree:
         case 0:
-            return e.get(0)
+            return check_infinite_solution(e)
         case 1:
             return solve_linear_equation(e)
         case 2:
