@@ -9,6 +9,7 @@ from core.operations import (
 
 
 def solve_linear_equation(e: dict):
+    print(e)
     """bx + c = 0"""
     b = e.get(1)
     c = e.get(0)
@@ -36,7 +37,8 @@ def check_infinite_solution(e : dict):
     print(e)
     if e.get(0) == 0:
         print("Every real number")
-    print("Impossible")
+    else :
+        print("Impossible")
     return e.get(0)
 
 
@@ -55,14 +57,15 @@ def execute(degree: int, e: dict):
 
 
 def reduce_equation(left: dict, right: dict):
+    reduced = {0: 0, 1: 0, 2: 0}
     equation = left.copy()
     for k, v in right.items():
         if equation.get(k):
-            equation[k] = equation[k] - v
+            reduced[k] = equation[k] - v
         else:
-            equation[k] = -1 * v
-    display_reduced_equation(equation)
-    return equation
+            reduced[k] = -1 * v
+    display_reduced_equation(reduced)
+    return reduced
 
 
 def equation_solver(left: dict, right: dict):
